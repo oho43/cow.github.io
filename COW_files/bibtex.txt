@@ -1,0 +1,6 @@
+@article{yang2023diffusion,
+  title={Diffusion in Diffusion: Cyclic One-Way Diffusion for Text-Vision-Conditioned Generation},
+  author={Yang, Yongqi and Wang, Ruoyu and Qian, Zhihao and Zhu, Ye and Wu, Yu},
+  journal={arXiv preprint arXiv:2306.08247},
+  year={2023}
+}
