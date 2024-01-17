@@ -44,26 +44,36 @@
 </div>
 <div class="content">
   <h2>Tradeoffs between Text and Visual Conditions</h2>
-  <p>COW strikes a balance between meeting the visual and text conditions.  For example, when given a photo of a young woman but the text is “an old person”, our method can make the woman older to meet the text description by adding wrinkles, changing skin elasticity and hair color, etc. while maintaining the facial expression and the ID of the given woman.  Qualitative results of varying degrees of influence brought by text condition are provided in Fig. 7 in the Appendix.</p>
-<img class="summary-img" src="./COW_files/balance.png" style="width:100%;">
+  <p>COW strikes a balance between meeting the visual and text conditions. For example, when given a photo of a young woman but the text is “an old person”, our method can make the woman older to meet the text description by adding wrinkles, changing skin elasticity and hair color, etc. while maintaining the facial expression and the ID of the given woman. </p>
+<img class="summary-img" src="./COW_files/balance.png" style="width:90%;"> <br>
+
+<p>COW offers a flexible change in the visual condition region according to the text guidance. The level of changes that may occur within the seed image depends on the discrepancy between textual and visual conditions.   We show a set of samples containing gradual changes of the generated sample: (1) almost unchanged, (2) slightly perturbed (e.g., add accessories), (3) attribute variation (e.g., from smile to angry), (4) style transfer (e.g., from photo to comic picture), and (5) cross-domain transformation (e.g., from human face to lion).   The results demonstrate that the seed images can be well preserved given no explicit conflict between the visual-text conditioning pairs, while appropriate levels of text-guided changes can also be well reflected in the case of attribute variation, style transfer, and cross-domain transformation.</p>
+<img class="summary-img" src="./COW_files/level.png" style="width:100%;"> <br>
+
+<p>We further provide examples with stronger conflicts <strong>(cross-domain transformation)</strong> to demonstrate the model could even fit in the case where the visual condition has a very strong conflict with other conditions.  </p>
+<br>
+<img class="summary-img" src="./COW_files/cross_domian.png" style="width:100%;"> <br>
 </div>
-<div class="content">
-  <h2>Increasing Degrees of Changes in Visual Conditions</h2>
-  <p>COW offers a flexible change in the visual condition region according to the text guidance.   The level of changes that may occur within the seed image depends on the discrepancy between textual and visual conditions.   We show a set of samples containing gradual changes of the generated sample: (1) almost unchanged, (2) slightly perturbed (e.g., add accessories), (3) attribute variation (e.g., from smile to angry), (4) style transfer (e.g., from photo to comic picture), and (5) cross-domain transformation (e.g., from human face to lion).   The results demonstrate that the seed images can be well preserved given no explicit conflict between the visual-text conditioning pairs, while appropriate levels of text-guided changes can also be well reflected in the case of attribute variation, style transfer, and cross-domain transformation.</p>
+
+
+<!-- <div class="content">
+  <h2>Varying Degrees of Visual Condition Variation</h2>
+  <p>COW offers a flexible change in the visual condition region according to the text guidance. The level of changes that may occur within the seed image depends on the discrepancy between textual and visual conditions.   We show a set of samples containing gradual changes of the generated sample: (1) almost unchanged, (2) slightly perturbed (e.g., add accessories), (3) attribute variation (e.g., from smile to angry), (4) style transfer (e.g., from photo to comic picture), and (5) cross-domain transformation (e.g., from human face to lion).   The results demonstrate that the seed images can be well preserved given no explicit conflict between the visual-text conditioning pairs, while appropriate levels of text-guided changes can also be well reflected in the case of attribute variation, style transfer, and cross-domain transformation.</p>
   <br>
   <img class="summary-img" src="./COW_files/level.png" style="width:100%;"> <br>
-</div>
-<div class="content">
-  <h2>Cross-Domain Transformation</h2>
-  <p>We further provide examples with stronger conflicts (cross-domain) in Fig. 8 to demonstrate the model could even fit in the case where the visual condition has a very strong conflict with other conditions.  </p>
+</div> -->
+
+<!-- <div class="content">
+  <h2>Results of Cross-Domain Transformation</h2>
+  <p>We further provide examples with stronger conflicts (cross-domain) to demonstrate the model could even fit in the case where the visual condition has a very strong conflict with other conditions.  </p>
   <br>
   <img class="summary-img" src="./COW_files/cross_domian.png" style="width:100%;"> <br>
-</div>
+</div> -->
 
 
 <div class="content">
   <h2>Whole Imgae Generation and Editting</h2>
-  <p>COW can also be applied to full image generation and editing.</p>
+  <p>COW can also be applied to whole image generation and editing.</p>
   <br>
   <img class="summary-img" src="./COW_files/whole.png" style="width:100%;"> <br>
 </div>
