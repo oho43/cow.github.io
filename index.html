@@ -1,1 +1,94 @@
-<h1>Testing </h1>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>DreamBooth</title>
+<link href="./COW_files/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+<div class="content">
+  <h1><strong>Diffusion in Diffusion: Cyclic One-Way Diffusion for Text-Vision-Conditioned Generation</strong></h1>
+  <p id="authors"><a>Ruoyu Wang<sup>1,*</sup></a> <a>Yongqi Yang<sup>1,*</sup></a> <a >ZhiHao Qian<sup>1</sup> </a> <a >Ye Zhu<sup>2</sup></a> <a>Yu Wu<sup>1</sup></a><br>
+
+  <span style="font-size: 16px"><sup>1</sup> School of Computer Science, Wuhan University &nbsp;&nbsp; <sup>2</sup> Princeton University
+    <br>  <sup>*</sup> Equal Contribution
+  </span></p>
+
+  <br>
+  <img src="./COW_files/teaser.png" class="teaser-gif" style="width:100%;"><br>
+  <h3 style="text-align:center"><em>It's a training-free pipeline for versatile customization application scenarios!</em></h3>
+    <font size="+2">
+          <p style="text-align: center;">
+            <a href="https://arxiv.org/abs/2306.08247" target="_blank">[Paper]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+	    (<font color="#C70039">Comming Soon</font>) <a  target="_blank">[Code]</a> &nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="COW_files/bibtex.txt" target="_blank">[BibTeX]</a>
+          </p>
+    </font>
+</div>
+<div class="content">
+  <h2 style="text-align:center;">Abstract</h2>
+  <p>Originating from the diffusion phenomenon in physics that describes particle movement, the diffusion generative models inherit the characteristics of stochastic random walk in the data space along the denoising trajectory. However, the intrinsic mutual interference among image regions contradicts the need for practical downstream application scenarios where the preservation of low-level pixel information from given conditioning is desired (e.g., customization tasks like personalized generation and inpainting based on a user-provided single image). In this work, we investigate the diffusion (physics) in diffusion (machine learning) properties and propose our Cyclic One-Way Diffusion (COW) method to control the direction of diffusion phenomenon given a pre-trained frozen diffusion model for versatile customization application scenarios, where the low-level pixel information from the conditioning needs to be preserved. Notably, unlike most current methods that incorporate additional conditions by fine-tuning the base textto-image diffusion model or learning auxiliary networks, our method provides a novel perspective to understand the task needs and is applicable to a wider range of customization scenarios in <strong>a learning-free manner</strong>. Extensive experiment results show that our proposed COW can achieve more flexible customization based on strict visual conditions in different application settings.</p>
+</div>
+<div class="content">
+  <h2>Background</h2>
+  <p>The physical diffusion is an intrinsically stochastic process with no directional constraints, the same characteristic should be preserved in diffusion models in machine learning, which is also believed to model a random walk in the data space. In this work, we design an analytical experiment to explicitly disclose this particle movement in image generation diffusion models in a straightforward way. We inverse pictures of pure gray and white back to xt, merge them together with different layouts, and then regenerate them back to x0 via deterministic denoising.  Different columns indicate different replacement steps t. The resulting images show how regions within an image diffuse into each other during denoising.</p>
+  <br>
+  <img class="summary-img" src="./COW_files/background.png" style="width:70%;"> <br>
+</div>
+<div class="content">
+  <h2>Approach</h2>
+  <p>Given the input visual condition, we stick it on a predefined background and inverse it as the seed initialization of the starting point of the cycle. In the Cyclic One-Way Diffusion process, we “disturb” and “reconstruct” the image in a cyclic way and ensure a continuous one-way diffusion by consistently replacing it with corresponding xt.</p>
+  <br>
+  <img class="summary-img" src="./COW_files/pipeline.png" style="width:100%;"> <br>
+</div>
+<div class="content">
+  <h2>Tradeoffs between Text and Visual Conditions</h2>
+  <p>COW strikes a balance between meeting the visual and text conditions.  For example, when given a photo of a young woman but the text is “an old person”, our method can make the woman older to meet the text description by adding wrinkles, changing skin elasticity and hair color, etc. while maintaining the facial expression and the ID of the given woman.  Qualitative results of varying degrees of influence brought by text condition are provided in Fig. 7 in the Appendix.</p>
+<img class="summary-img" src="./COW_files/balance.png" style="width:100%;">
+</div>
+<div class="content">
+  <h2>Increasing Degrees of Changes in Visual Conditions</h2>
+  <p>COW offers a flexible change in the visual condition region according to the text guidance.   The level of changes that may occur within the seed image depends on the discrepancy between textual and visual conditions.   We show a set of samples containing gradual changes of the generated sample: (1) almost unchanged, (2) slightly perturbed (e.g., add accessories), (3) attribute variation (e.g., from smile to angry), (4) style transfer (e.g., from photo to comic picture), and (5) cross-domain transformation (e.g., from human face to lion).   The results demonstrate that the seed images can be well preserved given no explicit conflict between the visual-text conditioning pairs, while appropriate levels of text-guided changes can also be well reflected in the case of attribute variation, style transfer, and cross-domain transformation.</p>
+  <br>
+  <img class="summary-img" src="./COW_files/level.png" style="width:100%;"> <br>
+</div>
+<div class="content">
+  <h2>Cross-Domain Transformation</h2>
+  <p>We further provide examples with stronger conflicts (cross-domain) in Fig. 8 to demonstrate the model could even fit in the case where the visual condition has a very strong conflict with other conditions.  </p>
+  <br>
+  <img class="summary-img" src="./COW_files/cross_domian.png" style="width:100%;"> <br>
+</div>
+
+
+<div class="content">
+  <h2>Whole Imgae Generation and Editting</h2>
+  <p>COW can also be applied to full image generation and editing.</p>
+  <br>
+  <img class="summary-img" src="./COW_files/whole.png" style="width:100%;"> <br>
+</div>
+<div class="content">
+  <h2>Generalized Visual Condition</h2>
+  <p>COW can be directly applied to other visual conditions other than human faces.</p>
+  <br>
+  <img class="summary-img" src="./COW_files/generalized.png" style="width:100%;"> <br>
+</div>
+
+
+<div class="content">
+  <h2>BibTex</h2>
+  <code> @article{yang2023diffusion,<br>
+  &nbsp;&nbsp;title={Diffusion in Diffusion: Cyclic One-Way Diffusion for Text-Vision-Conditioned Generatio},<br>
+  &nbsp;&nbsp;author={Yang, Yongqi and Wang, Ruoyu and Qian, Zhihao and Zhu, Ye and Wu, Yu},<br>
+  &nbsp;&nbsp;journal={arXiv preprint arXiv:2306.08247},<br>
+  &nbsp;&nbsp;year={2023}<br>
+  } </code> 
+</div>
+<div class="content" id="acknowledgements">
+  <p><strong>Acknowledgements</strong>:
+    The website template is borrowed from <a href="https://dreambooth.github.io/" style="text-decoration: none; color: black;">DreamBooth</a>.
+  
+  </p>
+</div>
+</body>
+</html>
